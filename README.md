@@ -19,7 +19,7 @@ Jenkins CCRC integration script. You will have to use one node for both SCM pull
 5. Set exit code to 0
 6. Restrict ScriptTrigger to run only on your node
 7. Add a schedule to the ScriptTrigger
-8. Do __NOT__ enable concurrent build option because if can run the update during existing build and ruin the results
+8. Do __NOT__ enable concurrent build option. It can run the update while the project is building and ruin the results
  
 Now your jenkins node will be periodically asked by master to run the script and check its exit code.
 Script return 0 if update was successful and changes were found. Otherwise (if error happens or no changes found) it returns non-zero error codes.

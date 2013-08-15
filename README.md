@@ -3,15 +3,15 @@ ccrc-utils
 
 Clearcase Remote Client Utilities to make your hard life easy
 
-== ccrc-jenkins-integration ==
+## ccrc-jenkins-integration
 Jenkins CCRC integration script. You will have to use one node for both SCM pulling and build steps (e.g. it's not possible to pull CCRC changes on master, but build on a node)
 
-On node
+#### On node
 1. Setup CCRC and CCRC CLI (http://www-01.ibm.com/support/docview.wss?uid=swg24021929)
 2. Setup a CCRC repo in the node's remote FS root
 3. Edit update_cc.bat and set proper variables
 
-On master
+#### On master
 1. Install ScriptTrigger plugin (https://wiki.jenkins-ci.org/display/JENKINS/ScriptTrigger+Plugin)
 2. Make your build job use custom workspace set to the path of your repo 
 3. Add ScriptTrigger build trigger to your job

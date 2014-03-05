@@ -21,15 +21,15 @@ for /f "usebackq delims=%%" %%i in (`%command%`) do (
   echo output: %%i
 
   rem check for error
-  echo %%i | findstr /r /c:"^CR" > NUL
+  echo %%i | findstr /b /c:CR > NUL
   if !errorlevel! EQU 0 goto onError
 
   rem count changes
-  echo %%i | findstr /r /c:"^(L|Unl)oading" > NUL
+  echo %%i | findstr /b /c:Loading /c:Unloading > NUL
   if !errorlevel! EQU 0 set /a lc=lc + 1
 
   rem found success marker
-  echo %%i | findstr /r /c:"^Done Loading" > NUL
+  echo %%i | findstr /b /c:"Done Loading" > NUL
   if !errorlevel! EQU 0 set success=1
 )
 echo changes count: %lc%, success marker: %success%
